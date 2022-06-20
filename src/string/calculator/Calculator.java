@@ -3,14 +3,16 @@ package string.calculator;
 import org.junit.platform.commons.util.StringUtils;
 
 public class Calculator {
-
-	private static String DELIMITER = ",|\n";
 	
 	public static int add(String numbers) {
-		
-		if(stringIsEmpty(numbers))
+		String delimiter = ",|\n";
+		if (stringIsEmpty(numbers))
 			return 0;
-		String[] splitNumbers = numbers.split(DELIMITER);
+		if (numbers.startsWith("//")) {
+			delimiter = "" + numbers.charAt(2);
+			numbers = numbers.substring(4);
+		}
+		String[] splitNumbers = numbers.split(delimiter);
 		int sum = 0;
 		for (String separatedNumber : splitNumbers)
 			sum += stringToInt(separatedNumber);
