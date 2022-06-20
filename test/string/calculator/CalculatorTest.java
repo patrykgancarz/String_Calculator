@@ -19,10 +19,6 @@ class CalculatorTest {
 		assertEquals(0,Calculator.add(null));
 	}
 	@Test
-	final void testForThreeNumbersInput() {
-		assertThrows(TooManyArgumentsException.class, () -> Calculator.add("1,2,3"));
-	}
-	@Test
 	final void testForOneNumberInput() {
 		assertEquals(1,Calculator.add("1"));
 	}
@@ -34,4 +30,9 @@ class CalculatorTest {
 	final void testForNonNumberInput() {
 		assertThrows(NumberFormatException.class, () -> Calculator.add("1,x"));
 	}
+	@Test
+	final void testForThreeNumbersInput() {
+		assertEquals(6,Calculator.add("1,2,3"));
+	}
+
 }
