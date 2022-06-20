@@ -7,8 +7,17 @@ import org.junit.jupiter.api.Test;
 class CalculatorTest {
 
 	@Test
-	void test() {
-		fail("Not yet implemented");
+	final void testForEmptyInput() {
+		assertEquals(0,Calculator.add(""));
 	}
+	@Test
+	final void testForWhitespaceInput() {
+		assertEquals(0,Calculator.add("  "));
+	}
+	@Test
+	final void testForNullInput() {
+		assertEquals(0,Calculator.add("null"));
+	}
+	
 
 }
