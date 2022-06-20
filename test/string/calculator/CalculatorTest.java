@@ -16,11 +16,22 @@ class CalculatorTest {
 	}
 	@Test
 	final void testForNullInput() {
-		assertEquals(0,Calculator.add("null"));
+		assertEquals(0,Calculator.add(null));
 	}
 	@Test
 	final void testForThreeNumbersInput() {
 		assertThrows(TooManyArgumentsException.class, () -> Calculator.add("1,2,3"));
 	}
-
+	@Test
+	final void testForOneNumberInput() {
+		assertEquals(1,Calculator.add("1"));
+	}
+	@Test
+	final void testForTwoNumbersInput() {
+		assertEquals(3,Calculator.add("1,2"));
+	}
+	@Test
+	final void testForNonNumberInput() {
+		assertThrows(NumberFormatException.class, () -> Calculator.add("1,x"));
+	}
 }
