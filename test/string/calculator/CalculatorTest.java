@@ -18,6 +18,9 @@ class CalculatorTest {
 	final void testForNullInput() {
 		assertEquals(0,Calculator.add("null"));
 	}
-	
+	@Test
+	final void testForThreeNumbersInput() {
+		assertThrows(TooManyArgumentsException.class, () -> Calculator.add("1,2,3"));
+	}
 
 }
