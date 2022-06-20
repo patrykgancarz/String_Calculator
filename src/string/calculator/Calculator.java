@@ -4,7 +4,7 @@ import org.junit.platform.commons.util.StringUtils;
 
 public class Calculator {
 
-	private static String DELIMITER = ",";
+	private static String DELIMITER = ",|\n";
 	
 	public static int add(String numbers) {
 		
